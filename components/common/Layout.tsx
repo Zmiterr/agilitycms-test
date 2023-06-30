@@ -59,7 +59,7 @@ function Layout(props: AgilityPageProps) {
 				{isPreviewRequested && <LoadingWidget message="Loading Preview Mode" />}
 				{!isPreviewRequested && (
 					<div id="site">
-						<PreviewBar {...{isDevelopmentMode, isPreview}} />
+						{/*<PreviewBar {...{isDevelopmentMode, isPreview}} />*/}
 						<div className="flex flex-col min-h-screen">
 							<SiteHeader {...props} />
 							<main className="flex-grow">
