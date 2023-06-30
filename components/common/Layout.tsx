@@ -66,7 +66,7 @@ function Layout(props: AgilityPageProps) {
 								{AgilityPageTemplate && <AgilityPageTemplate {...props} />}
 								{!AgilityPageTemplate && <div>The template {pageTemplateName} could not be found.</div>}
 							</main>
-							<SiteFooter />
+							<SiteFooter {...props}/>
 						</div>
 					</div>
 				)}

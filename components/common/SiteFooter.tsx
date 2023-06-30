@@ -1,48 +1,72 @@
-import Image from "next/image";
 import React from "react";
-import { FaTwitter, FaInstagram, FaSlack, FaYoutube } from "react-icons/fa";
+import Link from "next/link";
+import {ComponentWithInit, ImageField} from "@agility/nextjs";
 
 /**
  * This footer is not part of the content in the CMS, feel free to remove this for production use.
  */
+interface ILink {
+	title: string
+	path: string
+}
 
-const SiteFooter = () => {
+interface ICustomData {
+	siteName: string
+	logo: ImageField
+	links: ILink[]
+}
+
+const SiteFooter: ComponentWithInit<ICustomData | null> = ({globalData}) => {
 	// set up Agility CMS Socials
-	const socials = [
-		{
-			title: "Twitter",
-			url: "https://www.twitter.com/agilitycms",
-			icon: (
-				<FaTwitter className="text-xl md:ml-8 text-primary-500 hover:text-primary-700 transition duration-300" />
-			),
-		},
-		{
-			title: "Instagram",
-			url: "https://www.instagram.com/agilitycms",
-			icon: (
-				<FaInstagram className="text-xl md:ml-8 text-primary-500 hover:text-primary-700 transition duration-300" />
-			),
-		},
-		{
-			title: "Slack",
-			url:
-				"https://join.slack.com/t/agilitycms-community/shared_invite/zt-99qlv1hw-tpPOJ99V21Y2omtA_uTcJw",
-			icon: (
-				<FaSlack className="text-xl md:ml-8 text-primary-500 hover:text-primary-700 transition duration-300" />
-			),
-		},
-		{
-			title: "YouTube",
-			url: "https://www.youtube.com/channel/UCzKjErx94RLTbJctcrIgsDQ",
-			icon: (
-				<FaYoutube className="text-xl md:ml-8 text-primary-500 hover:text-primary-700 transition duration-300" />
-			),
-		},
-	];
+	const header: ICustomData = globalData ? globalData["header"] : null
+	// const socials = [
+	// 	{
+	// 		title: "Twitter",
+	// 		url: "https://www.twitter.com/agilitycms",
+	// 		icon: (
+	// 			<FaTwitter className="text-xl md:ml-8 text-primary-500 hover:text-primary-700 transition duration-300" />
+	// 		),
+	// 	},
+	// 	{
+	// 		title: "Instagram",
+	// 		url: "https://www.instagram.com/agilitycms",
+	// 		icon: (
+	// 			<FaInstagram className="text-xl md:ml-8 text-primary-500 hover:text-primary-700 transition duration-300" />
+	// 		),
+	// 	},
+	// 	{
+	// 		title: "Slack",
+	// 		url:
+	// 			"https://join.slack.com/t/agilitycms-community/shared_invite/zt-99qlv1hw-tpPOJ99V21Y2omtA_uTcJw",
+	// 		icon: (
+	// 			<FaSlack className="text-xl md:ml-8 text-primary-500 hover:text-primary-700 transition duration-300" />
+	// 		),
+	// 	},
+	// 	{
+	// 		title: "YouTube",
+	// 		url: "https://www.youtube.com/channel/UCzKjErx94RLTbJctcrIgsDQ",
+	// 		icon: (
+	// 			<FaYoutube className="text-xl md:ml-8 text-primary-500 hover:text-primary-700 transition duration-300" />
+	// 		),
+	// 	},
+	// ];
 
 	return (
 		<footer className="relative px-8 py-6 md:py-4 mt-8 bg-gray-100">
 			<div className="max-w-screen-xl mx-auto md:flex md:items-center">
+				<nav className="hidden md:flex space-x-10">
+					{header.links.map((navitem, index) => {
+						return (
+							<Link
+								href={navitem.path}
+								key={`mobile-${index}`}
+								className="text-base leading-6 font-medium text-secondary-500 hover:text-primary-500 border-transparent border-b-2 hover:border-primary-500 hover:border-b-primary hover:border-b-2 focus:outline-none focus:text-primary-500 transition duration-300"
+							>
+								{navitem.title}
+							</Link>
+						)
+					})}
+				</nav>
 				{/*<div className="text-center mb-4 md:mb-0 md:text-left flex-shrink-0 relative">*/}
 				{/*	<a*/}
 				{/*		href="https://www.agilitycms.com"*/}
