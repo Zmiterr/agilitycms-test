@@ -1,0 +1,27 @@
+stages:
+  - prod_build_push
+  - prod_deploy
+
+kubernetes prod build push:
+  stage: prod_build_push
+  variables:
+    GIT_STRATEGY: clone
+  #   GIT_SUBMODULE_STRATEGY: normal
+  script:
+    # - cat $ENV_PROD > .env
+    - git checkout $CI_COMMIT_REF_NAME
+    - sudo docker build -t registry.digitalocean.com/mineplex-registry/agilitycms-prod:$CI_COMMIT_SHORT_SHA .
+    - sudo docker push registry.digitalocean.com/mineplex-registry/agilitycms-prod:$CI_COMMIT_SHORT_SHA
+  only:
+    - main
+  tags:
+    - shell-build
+
+kubernetes prod deploy:
+  stage: prod_deploy
+  script:
+    - sudo kubectl set image deployment/agilitycms-prod  agilitycms-prod=registry.digitalocean.com/mineplex-registry/agilitycms-prod:$CI_COMMIT_SHORT_SHA --namespace=scrump-prod
+  only:
+    - main1
+  tags:
+    - shell-build1
