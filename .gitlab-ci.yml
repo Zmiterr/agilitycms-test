@@ -1,6 +1,24 @@
 stages:
+  - test
   - prod_build_push
   - prod_deploy
+
+
+Test CodeBase with SonarQube:
+  stage: test
+  image: sonarsource/sonar-scanner-cli:${SONAR_SCANNER_CLI_VERSION}
+  variables:
+    SONAR_PROJECT_BASE_DIR: "$CI_PROJECT_DIR"
+    GIT_DEPTH: 0
+  script:
+    - /usr/bin/entrypoint.sh sonar-scanner -Dsonar.projectKey=${SONAR_PROJECT_KEY} -Dsonar.qualitygate.wait=true
+  allow_failure: true
+  only:
+    - main
+    - develop
+  tags:
+    - docker-build
+
 
 kubernetes prod build push:
   stage: prod_build_push
@@ -22,6 +40,6 @@ kubernetes prod deploy:
   script:
     - sudo kubectl set image deployment/agilitycms-prod  agilitycms-prod=registry.digitalocean.com/mineplex-registry/agilitycms-prod:$CI_COMMIT_SHORT_SHA --namespace=scrump-prod
   only:
-    - main1
+    - main
   tags:
-    - shell-build1
+    - shell-build
