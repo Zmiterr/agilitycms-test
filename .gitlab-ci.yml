@@ -27,7 +27,7 @@ kubernetes prod build push:
     GIT_STRATEGY: clone
   #   GIT_SUBMODULE_STRATEGY: normal
   script:
-    # - cat $ENV_PROD > .env
+    - cat $ENV_PROD > .env.local
     - git checkout $CI_COMMIT_REF_NAME
     - sudo docker build -t registry.digitalocean.com/mineplex-registry/agilitycms-prod:$CI_COMMIT_SHORT_SHA .
     - sudo docker push registry.digitalocean.com/mineplex-registry/agilitycms-prod:$CI_COMMIT_SHORT_SHA
