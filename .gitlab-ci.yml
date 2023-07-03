@@ -4,6 +4,7 @@ stages:
   - prod_deploy
 
 
+
 Test CodeBase with SonarQube:
   stage: test
   image: sonarsource/sonar-scanner-cli:${SONAR_SCANNER_CLI_VERSION}
