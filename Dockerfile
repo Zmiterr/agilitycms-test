@@ -5,11 +5,11 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 COPY yarn.lock ./
 
-RUN yarn install
+#RUN yarn install
 
 COPY . .
 
-# RUN yarn build
+RUN yarn build
 
 EXPOSE 3000
 
