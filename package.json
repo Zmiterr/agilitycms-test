@@ -9,6 +9,7 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
+		"@ctrl/react-adsense": "^1.7.0",
 		"@next/font": "^13.0.3",
 		"@tailwindcss/line-clamp": "^0.4.2",
 		"@types/node": "18.11.9",
