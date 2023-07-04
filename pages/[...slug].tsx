@@ -34,7 +34,7 @@ export const getStaticProps: GetStaticProps<AgilityPageProps> = async ({preview,
 
 		// Next.js will attempt to re-generate the page when a request comes in, at most once every 10 seconds
 		// Read more on Incremental Static Regenertion here: https://nextjs.org/docs/basic-features/data-fetching#incremental-static-regeneration
-		revalidate: 10,
+		revalidate: false,
 	}
 }
 
