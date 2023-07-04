@@ -8,6 +8,7 @@ import SiteHeader from "./SiteHeader"
 import SiteFooter from "./SiteFooter"
 import LoadingWidget from "./LoadingWidget"
 import {useEffect, useState} from "react"
+import AdBanner from "./AdBanner";
 
 interface Props {
 	page: any
@@ -55,6 +56,7 @@ function Layout(props: AgilityPageProps) {
 				keywords={page.seo.metaKeywords}
 				metaHTML={page.seo.metaHTML}
 			/>
+			<AdBanner />
 			<div id="site-wrapper">
 				{isPreviewRequested && <LoadingWidget message="Loading Preview Mode" />}
 				{!isPreviewRequested && (
