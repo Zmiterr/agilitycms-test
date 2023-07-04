@@ -2,6 +2,8 @@
 import { ClassAttributes, InsHTMLAttributes, useEffect} from 'react';
 
 import {useRouter} from "next/router";
+import {Adsense} from "@ctrl/react-adsense";
+import Script from "next/script";
 
 // const Adsense = dynamic(
 //     () => import('@ctrl/react-adsense').then(module=>module.Adsense),
@@ -11,22 +13,25 @@ import {useRouter} from "next/router";
 
 
 const AdBanner = (props: JSX.IntrinsicAttributes & ClassAttributes<HTMLModElement> & InsHTMLAttributes<HTMLModElement>) => {
-    const { isReady } = useRouter();
+    const { isReady, route } = useRouter();
 
     useEffect(() => {
-        if (!isReady) {
-            return void 0;
-        }
+        // if (!isReady) {
+        //     return void 0;
+        // }
         try {
-            (window.adsbygoogle = window.adsbygoogle || []).push({});
+            window.adsbygoogle = window.adsbygoogle || []
+            window.adsbygoogle.push({})
+            // (window.adsbygoogle = window.adsbygoogle || []).push({});
         } catch (err) {
             console.log(`And failed ${err}`);
         }
-    }, [isReady]);
+    }, [route]);
 
     return (
         <>
             {/*<Adsense*/}
+            {/*    key={route}*/}
             {/*    client="ca-pub-9216561737791732"*/}
             {/*    slot="5843715081"*/}
             {/*    style={{ display: 'block' }}*/}
@@ -34,13 +39,14 @@ const AdBanner = (props: JSX.IntrinsicAttributes & ClassAttributes<HTMLModElemen
             {/*    format="fluid"*/}
             {/*    {...props}*/}
             {/*/>*/}
-            {/*<Script async*/}
-            {/*        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9216561737791732"*/}
-            {/*        crossOrigin="anonymous"*/}
-            {/*        strategy="lazyOnload"*/}
-            {/*        />*/}
-            {/*<div id="block">*/}
+            <Script async
+                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9216561737791732"
+                    crossOrigin="anonymous"
+                    strategy="lazyOnload"
+                    />
+            <div id="block" style={{display: "flex", justifyContent: 'center'}}>
                 <ins
+                    key={route}
                     className="adsbygoogle adbanner-customize"
                     style={{
                         display:'inline-block',
@@ -54,7 +60,7 @@ const AdBanner = (props: JSX.IntrinsicAttributes & ClassAttributes<HTMLModElemen
                     data-full-width-responsive="true"
                     {...props}
                 />
-            {/*</div>*/}
+            </div>
 </>
 
 
