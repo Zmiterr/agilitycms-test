@@ -3,10 +3,9 @@ import { ClassAttributes, InsHTMLAttributes, useEffect} from 'react';
 const AdBanner = (props: JSX.IntrinsicAttributes & ClassAttributes<HTMLModElement> & InsHTMLAttributes<HTMLModElement>) => {
     useEffect(() => {
         try {
-            // @ts-ignore
             (window.adsbygoogle = window.adsbygoogle || []).push({});
         } catch (err) {
-            console.log(err);
+            console.log(`And failed ${err}`);
         }
     }, []);
 
@@ -16,6 +15,7 @@ const AdBanner = (props: JSX.IntrinsicAttributes & ClassAttributes<HTMLModElemen
                     src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9216561737791732"
                     crossOrigin="anonymous"></script>
             <ins
+
                 className="adsbygoogle adbanner-customize"
                 style={{
                     display:'inline-block',
@@ -27,9 +27,6 @@ const AdBanner = (props: JSX.IntrinsicAttributes & ClassAttributes<HTMLModElemen
                 data-ad-slot="5843715081"
                 {...props}
             />
-            <script>
-                {/*(adsbygoogle = window.adsbygoogle || []).push({});*/}
-            </script>
         </div>
 
     );
