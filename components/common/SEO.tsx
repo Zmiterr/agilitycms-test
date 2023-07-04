@@ -1,6 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import ReactHtmlParser from 'html-react-parser';
+import Script from "next/script";
 
 interface Props {
 	title: string
