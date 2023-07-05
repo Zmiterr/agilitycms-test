@@ -1,0 +1,33 @@
+{
+  "header": {
+    "siteName": "CYBERWRITE",
+    "logo": {
+      "label": "cybersecurity online courses",
+      "url": "https://cdn.aglty.io/ay1vesi3/Attachments/NewItems/logo-cyber_20230628134420_0.png",
+      "target": null,
+      "filesize": 5929,
+      "pixelHeight": "176",
+      "pixelWidth": "228",
+      "height": 176,
+      "width": 228
+    },
+    "links": [
+      {
+        "title": "Home",
+        "path": "/home"
+      },
+      {
+        "title": "Blog",
+        "path": "/blog"
+      },
+      {
+        "title": "About",
+        "path": "/about"
+      },
+      {
+        "title": "Contact us",
+        "path": "/contact-us"
+      }
+    ]
+  }
+}
