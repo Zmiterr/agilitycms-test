@@ -50,10 +50,10 @@ const SiteFooter: ComponentWithInit<ICustomData | null> = ({globalData}) => {
 
 								<Link
 									href={'/blog'}
-									key={`mobile-Сybersecurity`}
+									key={`mobile-General`}
 									className="text-xs leading-6 font-medium text-secondary-500 hover:text-primary-500 border-transparent border-b-2 hover:border-primary-500 hover:border-b-primary hover:border-b-2 focus:outline-none focus:text-primary-500 transition duration-300"
 								>
-									Сybersecurity
+									General
 								</Link>
 
 					</nav>
