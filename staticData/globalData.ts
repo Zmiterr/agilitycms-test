@@ -1,14 +1,14 @@
 export const GLOBAL_DATA = {
-    "siteName": "CYBERWRITE",
+    "siteName": "KOLMINAR",
     "logo": {
         "label": "cybersecurity online courses",
-        "url": "https://cdn.aglty.io/ay1vesi3/Attachments/NewItems/logo-cyber_20230628134420_0.png",
+        "url": "https://cdn.aglty.io/ay1vesi3/Attachments/NewItems/salesaitools_20230707120145_0.png",
         "target": null,
-        "filesize": 5929,
-        "pixelHeight": "176",
-        "pixelWidth": "228",
-        "height": 176,
-        "width": 228
+        "filesize": 11571,
+        "pixelHeight": "894",
+        "pixelWidth": "1382",
+        "height": 894,
+        "width": 1382
     },
     "links": [
         {
