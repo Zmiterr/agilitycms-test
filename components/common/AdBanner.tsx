@@ -40,7 +40,7 @@ const AdBanner = (props: JSX.IntrinsicAttributes & ClassAttributes<HTMLModElemen
             {/*    {...props}*/}
             {/*/>*/}
             <Script async
-                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9216561737791732"
+                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2089184887929037"
                     crossOrigin="anonymous"
                     strategy="lazyOnload"
                     />
@@ -54,8 +54,8 @@ const AdBanner = (props: JSX.IntrinsicAttributes & ClassAttributes<HTMLModElemen
                         height:'90px',
                         overflow: 'hidden',
                     }}
-                    data-ad-client={'ca-pub-9216561737791732'}
-                    data-ad-slot="5843715081"
+                    data-ad-client={'ca-pub-2089184887929037'}
+                    data-ad-slot="7945095430"
                     data-ad-format="auto"
                     data-full-width-responsive="true"
                     {...props}
